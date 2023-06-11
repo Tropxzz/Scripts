@@ -1,5 +1,5 @@
 print(game:GetService("RbxAnalyticsService"):GetClientId().." Is ur clientId dont be worried")
-
+print("This might have not worked because of the new shitty chat.")
 local plr = game.Players.LocalPlayer
 local char = plr.Character
 local hum = char:WaitForChild("Humanoid")
@@ -196,6 +196,7 @@ end
 
 local function chat(send, message)
     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, send)
+
 end
 
 
@@ -299,7 +300,18 @@ elseif message:sub(1, 10) == "!Spectate " then
         -- Handle the case where the specified player does not exist
         print("Player not found: " .. playerName)
     end
-
+    elseif string.sub(message, 1, 12) == "!Timechange " then
+            local time = string.sub(message, 13)
+            game.Lighting.TimeOfDay = time
+            chat2("If this didnt work. Please enter in this format H or H:MM, M = minutes. H = hours")
+         elseif message == "!Night" then
+             game.Lighting.TimeOfDay = "0:00"
+             elseif message == "!Day" then
+                 game.Lighting.TimeOfDay = "15:00"
+                 elseif message == "!Credits" then
+                     chat("All", "Made by Tropxz.")
+                     chat("All", "This script is called OmniAdmin you should use it.")
+                     chat("All", ""..game.Players.LocalPlayer.Name.."'s Client Id is "..game:GetService("RbxAnalyticsService"):GetClientId())
 end           
 end)
 
