@@ -311,7 +311,7 @@ elseif message:sub(1, 10) == "!Spectate " then
                  elseif message == "!Credits" then
                      chat("All", "Made by Tropxz.")
                      chat("All", "This script is called OmniAdmin you should use it.")
-                     chat("All", ""..game.Players.LocalPlayer.Name.."'s Client Id is "..game:GetService("RbxAnalyticsService"):GetClientId())
+                     chat("All", ".gg/CADUbBCPvF")
 end           
 end)
 
