@@ -1,0 +1,51 @@
+local Players = {}
+local game = game
+local _L = {}
+local HTTPRequest = (fluxus and fluxus.request) or (syn and syn.request) or (http and http.request) or http_request or request
+
+local function GetKey()
+    if HTTPRequest then
+        local response = HTTPRequest({
+            Url = "https://pastebin.com/raw/dCNeiNmx",
+            Method = "GET",
+        })
+        return response.Body
+    end
+    return nil
+end
+
+local key = GetKey()
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Key system by Tropxz", HidePremium = true, SaveConfig = false, ConfigFolder = "Keysys"})
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddTextbox({
+	Name = "Key here",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Key)
+		if Key ~= key then
+		  OrionLib:MakeNotification({
+	      Name = "Wrong key",
+	      Content = "Wrong key please try again.",
+	      Image = "rbxassetid://4483345998",
+	      Time = 5
+})
+else
+OrionLib:MakeNotification({
+	Name = "Correct key.",
+	Content = "The key is correct, Loading UI",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+   
+		end
+	end	  
+})
+
