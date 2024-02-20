@@ -1,4 +1,4 @@
-local ESPEnabled = false -
+local ESPEnabled = false 
 local lplr = game.Players.LocalPlayer 
 
 local function ShowESP()
